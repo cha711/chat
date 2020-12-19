@@ -7,6 +7,7 @@ export default (params: {
   uid: string;
   list: {
     uid: string;
+    uname?: string;
     message: string;
     createdAt: number;
   }[];
@@ -17,6 +18,15 @@ export default (params: {
         // 左吹き出し
         return (
           <div key={i}>
+            <div className="clearfix">
+              <div className="float-right">
+                <div style={{ fontSize: 12, color: '#fff' }}>
+                  {m.uname === undefined ? '名無し' : m.uname}
+                </div>
+                <div style={{ fontSize: 12, color: '#fff' }}>{m.uid}</div>
+              </div>
+            </div>
+
             <div className="clearfix">
               <div className="balloon2 float-right">
                 {reactStringReplace(
@@ -50,6 +60,10 @@ export default (params: {
       // 右吹き出し
       return (
         <div key={i}>
+          <div style={{ fontSize: 12, color: '#fff' }}>
+            {m.uname === undefined ? '名無し' : m.uname}
+          </div>
+
           <div style={{ fontSize: 12, color: '#fff' }}>{m.uid}</div>
           <div className="clearfix">
             <div className="balloon1 float-left">

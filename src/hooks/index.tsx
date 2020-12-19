@@ -7,6 +7,7 @@ import { pushNotification } from 'src/util';
 export const useCustomHooks = () => {
   const state = {
     uid: React.useState(''),
+    uname: React.useState('名無し'),
     loading: React.useState(true),
     list: React.useState(
       [] as {
@@ -20,6 +21,11 @@ export const useCustomHooks = () => {
   };
 
   const post = async () => {
+    if (state.uname[0].trim().length === 0) {
+      alert('ハンネを入力してください');
+      return;
+    }
+
     if (state.message[0].trim().length === 0) {
       alert('メッセージを入力してください');
       return;
@@ -33,6 +39,7 @@ export const useCustomHooks = () => {
       .ref(constant.table.boards)
       .push({
         uid: await firebase.auth().currentUser?.uid,
+        uname: state.uname[0],
         message: state.message[0].trim(),
         createdAt: new Date().getTime(),
         updatedAt: new Date().getTime(),
