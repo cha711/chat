@@ -28,9 +28,12 @@ https://chat-line.netlify.app
       ".write": "auth.uid != null",
       ".indexOn": ["uid", "createdAt"],
       "$bid": {
-        ".validate": "newData.hasChildren(['uid', 'message', 'createdAt', 'updatedAt'])",
+        ".validate": "newData.hasChildren(['uid', 'uname', 'message', 'createdAt', 'updatedAt'])",
         "uid": {
           ".validate": "newData.isString() && newData.val() === auth.uid"
+        },
+        "uname": {
+          ".validate": "newData.isString() && 0 < newData.val().length && newData.val().length <= 15"
         },
         "message": {
           ".validate": "newData.isString() && 0 < newData.val().length && newData.val().length <= 150"
