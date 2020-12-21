@@ -7,6 +7,7 @@ https://chat-line.netlify.app
 - Netlify(ホスティング)
 - Netlify Functions(プッシュ通知)
 - FireBase Realtime Database
+- Firebase Authentication
 - TypeScript
 - React
 - BootStrap4
@@ -50,6 +51,9 @@ https://chat-line.netlify.app
   }
 }
 ```
+
+## React Recoilバージョン
+https://github.com/cha711/chat-recoil
 
 ## モックソースコード
 https://github.com/cha711/cha711.github.io
